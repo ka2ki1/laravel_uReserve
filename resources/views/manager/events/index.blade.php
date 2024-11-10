@@ -32,7 +32,7 @@
         <tbody _msthidden="16">
             @foreach ($events as $event)
           <tr _msthidden="4">
-            <td class="px-4 py-3" _msttexthash="62374" _msthidden="1" _msthash="68">{{ $event->name }}</td>
+            <td class="text-blue-500 px-4 py-3" _msttexthash="62374" _msthidden="1" _msthash="68"><a href="{{ route('events.show', ['event' => $event->id]) }}">{{ $event->name }}</a></td>
             <td class="px-4 py-3" _msttexthash="62374" _msthidden="1" _msthash="68">{{ $event->start_date }}</td>
             <td class="px-4 py-3" _msttexthash="62374" _msthidden="1" _msthash="68">{{ $event->end_date }}</td>
             <td class="px-4 py-3" _msttexthash="62374" _msthidden="1" _msthash="68">後程</td>
