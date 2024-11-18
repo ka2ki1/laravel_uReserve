@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="pt-4 pb-2">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 
@@ -62,6 +62,35 @@
             </div>
         </form>
             </div>
+            </div>
+        </div>
+    </div>
+    <div class="py-4">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                <div class="max-w-2xl py-4 mx-auto">
+                    @if(!$users->isEmpty())
+                        <div class="text-center py-2">予約状況</div>
+            <table class="table-auto w-full text-left whitespace-no-wrap" _msthidden="20">
+                <thead _msthidden="4">
+                    <tr _msthidden="4">
+                        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl" _msttexthash="44161" _msthidden="1" _msthash="64">予約者名</th>
+                        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100" _msttexthash="58448" _msthidden="1" _msthash="65">予約人数</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach ($reservations as $reservation)
+                @if(is_null($reservation['canceled_date']))
+                <tr>
+                    <td class="px-4 py-3">{{ ($reservation['name'])}}</td>
+                    <td class="px-4 py-3">{{ ($reservation['number_of_people'])}}</td>
+                </tr>
+                @endif
+                @endforeach
+                </tbody>
+            </table>
+                    @endif
+                </div>
             </div>
         </div>
     </div>

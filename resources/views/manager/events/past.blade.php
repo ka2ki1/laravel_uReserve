@@ -15,7 +15,7 @@
                 {{ session('status') }}
             </div>
         @endif
-    
+
     <div class="w-full mx-auto overflow-auto" _msthidden="20">
       <table class="table-auto w-full text-left whitespace-no-wrap" _msthidden="20">
         <thead _msthidden="4">
@@ -35,7 +35,12 @@
             <td class="text-blue-500 px-4 py-3" _msttexthash="62374" _msthidden="1" _msthash="68"><a href="{{ route('events.show', ['event' => $event->id]) }}">{{ $event->name }}</a></td>
             <td class="px-4 py-3" _msttexthash="62374" _msthidden="1" _msthash="68">{{ $event->start_date }}</td>
             <td class="px-4 py-3" _msttexthash="62374" _msthidden="1" _msthash="68">{{ $event->end_date }}</td>
-            <td class="px-4 py-3" _msttexthash="62374" _msthidden="1" _msthash="68">後程</td>
+            <td class="px-4 py-3" _msttexthash="62374" _msthidden="1" _msthash="68">
+                @if(is_null($event->number_of_people))
+                    0
+                @else
+                    {{$event->number_of_people}}
+                @endif</td>
             <td class="px-4 py-3" _msttexthash="62374" _msthidden="1" _msthash="68">{{ $event->max_people}}</td>
             <td class="px-4 py-3" _msttexthash="62374" _msthidden="1" _msthash="68">{{ $event->is_visible }}</td>
           </tr>
